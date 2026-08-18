@@ -1,0 +1,27 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "adf-jancy"
+		},
+		"adf_linked01_accountKey": {
+			"value": ""
+		},
+		"adf_linked01_properties_typeProperties_url": {
+			"value": "https://adfstorageuh.dfs.core.windows.net/"
+		},
+		"git_http_properties_typeProperties_url": {
+			"value": "https://raw.githubusercontent.com"
+		},
+		"new trigger01_properties_typeProperties_scope": {
+			"value": "/subscriptions/d340c082-052e-4a12-9314-e5469ea829d2/resourceGroups/RG_ADFbasics/providers/Microsoft.Storage/storageAccounts/adfstorageuh"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}

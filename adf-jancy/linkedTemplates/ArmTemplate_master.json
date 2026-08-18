@@ -1,0 +1,70 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "adf-jancy"
+		},
+		"adf_linked01_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'adf_linked01'"
+		},
+		"adf_linked01_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adfstorageuh.dfs.core.windows.net/"
+		},
+		"git_http_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://raw.githubusercontent.com"
+		},
+		"new trigger01_properties_typeProperties_scope": {
+			"type": "string",
+			"defaultValue": "/subscriptions/d340c082-052e-4a12-9314-e5469ea829d2/resourceGroups/RG_ADFbasics/providers/Microsoft.Storage/storageAccounts/adfstorageuh"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "adf-jancy_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"adf_linked01_accountKey": {
+						"value": "[parameters('adf_linked01_accountKey')]"
+					},
+					"adf_linked01_properties_typeProperties_url": {
+						"value": "[parameters('adf_linked01_properties_typeProperties_url')]"
+					},
+					"git_http_properties_typeProperties_url": {
+						"value": "[parameters('git_http_properties_typeProperties_url')]"
+					},
+					"new trigger01_properties_typeProperties_scope": {
+						"value": "[parameters('new trigger01_properties_typeProperties_scope')]"
+					}
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}
