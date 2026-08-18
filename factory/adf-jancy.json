@@ -1,0 +1,15 @@
+{
+	"name": "adf-jancy",
+	"properties": {
+		"trustModeClaimForMi": {
+			"value": "Disabled",
+			"editable": true
+		}
+	},
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "8f9b8e7a-33be-4b2e-8c46-84e1213467cd",
+		"tenantId": "8fc9f1a0-1c32-4323-90af-a762cd875ed8"
+	}
+}

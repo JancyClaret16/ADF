@@ -1,0 +1,24 @@
+{
+	"name": "new trigger01",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "prodpipeline",
+					"type": "PipelineReference"
+				}
+			}
+		],
+		"type": "BlobEventsTrigger",
+		"typeProperties": {
+			"blobPathBeginsWith": "/source/blobs/csvfiles/fact_supermarket",
+			"ignoreEmptyBlobs": true,
+			"scope": "/subscriptions/d340c082-052e-4a12-9314-e5469ea829d2/resourceGroups/RG_ADFbasics/providers/Microsoft.Storage/storageAccounts/adfstorageuh",
+			"events": [
+				"Microsoft.Storage.BlobCreated"
+			]
+		}
+	}
+}
